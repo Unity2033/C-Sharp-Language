@@ -14,15 +14,24 @@ public class Control : MonoBehaviour
     private Vector3 moveForce;
     [SerializeField] float speed;
     [SerializeField] float gravity = 20.0f;
+    [SerializeField] ParticleSystem effect;
 
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         characterControl = GetComponent<CharacterController>();
     }
 
     void Update()
     {
         UpdateRotate(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+
+        if(Input.GetButtonDown("Fire1"))
+        {
+            effect.Play();
+        }
 
         MoveTo
             (      
