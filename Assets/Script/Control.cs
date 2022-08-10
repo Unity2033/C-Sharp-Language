@@ -15,6 +15,7 @@ public class Control : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float gravity = 20.0f;
     [SerializeField] ParticleSystem effect;
+    [SerializeField] GameObject bullet;
 
     void Start()
     {
@@ -31,17 +32,10 @@ public class Control : MonoBehaviour
         if(Input.GetButtonDown("Fire1"))
         {
             effect.Play();
+            Instantiate(bullet, effect.transform.position, effect.transform.rotation);
         }
 
-        MoveTo
-            (      
-                  new Vector3
-                  (
-                      Input.GetAxis("Horizontal"),
-                      0, 
-                      Input.GetAxis("Vertical")
-                  )
-            );
+        MoveTo(new Vector3( Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
 
         // 바닥과 충돌하지 않았다면
         if(characterControl.isGrounded == false)
