@@ -8,11 +8,14 @@ public class AIControl : MonoBehaviour
     [SerializeField] Transform[ ] Waypoint;
 
     private int count;
+    public int health;
 
+    private Animator animator;
     private Transform target;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         InvokeRepeating(nameof(MoveNext), 0, 2);
     }
@@ -50,6 +53,18 @@ public class AIControl : MonoBehaviour
         if(target != null)
         {
             agent.SetDestination(target.position);
+        }
+    }
+
+    public void Death()
+    {
+        if (health <= 0)
+        {
+            CancelInvoke();
+            agent.speed = 0;
+
+            animator.SetTrigger("Death");
+            Destroy(gameObject, 3);
         }
     }
 

@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        Destroy(this.gameObject, 3);
+         Destroy(this.gameObject, 3);
     }
 
     void Update()
@@ -21,12 +21,15 @@ public class Bullet : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
-            Instantiate
+           Instantiate
            (
              Resources.Load<GameObject>("WFX_BImpact Concrete"),
              transform.position,
              transform.rotation
             );
+
+            other.transform.GetComponentInParent<AIControl>().health -= 20;
+            other.transform.GetComponentInParent<AIControl>().Death();
 
             Destroy(this.gameObject);
         } 
