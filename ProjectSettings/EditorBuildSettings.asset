@@ -6,7 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/External Asset/Wand and Circles/Polygon City Free Pack - Environment
-      and Interior/DEMO.unity
+    path: Assets/Scene/Title.unity
+    guid: 8fbeee0029f0db8458aeb32572f71c45
+  - enabled: 1
+    path: Assets/Scene/Game.unity
     guid: 096b1b21c964f074d9776865a0c28d57
+  - enabled: 1
+    path: Assets/Scene/Loading.unity
+    guid: f807504bc866b5248813bb11f879b195
   m_configObjects: {}

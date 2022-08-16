@@ -63,7 +63,7 @@ public class AIControl : MonoBehaviour
             CancelInvoke();
             agent.speed = 0;
 
-            animator.SetTrigger("Death");
+            animator.Play("Death");
             Destroy(gameObject, 3);
         }
     }
