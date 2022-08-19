@@ -1,12 +1,20 @@
 using UnityEngine;
+using System.Collections;
 
 public class RandomSpawn : MonoBehaviour
 {
-    [SerializeField] GameObject zombie;
-
     void Start()
     {
-        Instantiate(zombie, RandomPosition(), Quaternion.identity);
+        StartCoroutine(nameof(CreateZombie));
+    }
+
+    public IEnumerator CreateZombie()
+    {
+        while(true)
+        {
+            ObjectPool.instance.GetQueue();
+            yield return new WaitForSeconds(10f);
+        }
     }
 
     public Vector3 RandomPosition()

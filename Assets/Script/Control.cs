@@ -42,14 +42,26 @@ public class Control : MonoBehaviour
         // 바닥과 충돌하지 않았다면
         if(characterControl.isGrounded == false)
         {
+            // 중력을 작용하도록 설정합니다.
             moveForce.y -= gravity * Time.deltaTime;
-        }
-        else
-        {
-            moveForce.y = 0.1f;
         }
 
         characterControl.Move(moveForce * Time.deltaTime);
+
+        Jump();
+    }
+
+    public void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // 바닥과 충돌한 상태라면
+            if(characterControl.isGrounded)
+            {
+                // 점프를 할 수 있도록 설정합니다.
+                moveForce.y = 7.5f;
+            }         
+        }
     }
 
     public void MoveTo(Vector3 direction)
@@ -95,6 +107,7 @@ public class Control : MonoBehaviour
         if(Physics.Raycast(ray, out hit, distance))
         {
             target = hit.point;
+            Instantiate(effect, hit.transform.position, hit.transform.rotation);
         }
         // 공격 사거리 안에 부딪히는 오브젝트가 없으면 targer 포인터는 최대 사거리의 위치로 설정합니다.
         else
@@ -110,7 +123,7 @@ public class Control : MonoBehaviour
         if(Physics.Raycast(effect.transform.position, direction, out hit, distance, layer))
         {
             hit.collider.GetComponentInParent<AIControl>().health -= 20;
-            hit.collider.GetComponentInParent<AIControl>().Death();
+            hit.collider.GetComponentInParent<AIControl>().Death();        
         }
     }
 

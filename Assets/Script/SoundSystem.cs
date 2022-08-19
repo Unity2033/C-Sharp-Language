@@ -15,6 +15,8 @@ public class SoundSystem : MonoBehaviour
         }
 
         audioSource = GetComponent<AudioSource>();
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Sound(int number)
