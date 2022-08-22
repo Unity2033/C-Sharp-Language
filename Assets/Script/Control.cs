@@ -107,7 +107,7 @@ public class Control : MonoBehaviour
         if(Physics.Raycast(ray, out hit, distance))
         {
             target = hit.point;
-            Instantiate(effect, hit.transform.position, hit.transform.rotation);
+            Instantiate(effect, hit.point, hit.transform.rotation);
         }
         // 공격 사거리 안에 부딪히는 오브젝트가 없으면 targer 포인터는 최대 사거리의 위치로 설정합니다.
         else
@@ -117,13 +117,12 @@ public class Control : MonoBehaviour
 
         // 첫 번째 Raycast 연산으로 얻어진 targer의 정보를 목표지점으로 설정하고, 
         // 총의 입구에서 Raycast를 발사합니다.
-
         Vector3 direction = (target - effect.transform.position).normalized;
 
         if(Physics.Raycast(effect.transform.position, direction, out hit, distance, layer))
         {
-            hit.collider.GetComponentInParent<AIControl>().health -= 20;
-            hit.collider.GetComponentInParent<AIControl>().Death();        
+            hit.collider.GetComponent<Zombie>().health -= 20;
+            hit.collider.GetComponent<Zombie>().Death();        
         }
     }
 
