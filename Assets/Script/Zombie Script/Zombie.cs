@@ -21,13 +21,17 @@ public class Zombie : MonoBehaviour
     {
         agent.SetDestination(character.transform.position);
 
-        // 애니메이터 컨트롤러에서 현재 애니메이터의 상태의 이름이 “Death”일 때 
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+        if (health <= 0)
         {
-            // 현재 애니메이션의 진행도가 1보다 크거나 같다면 메모리 풀에 반납합니다.
-            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+            // 애니메이터 컨트롤러에서 현재 애니메이터의 상태의 이름이 “Death”일 때 
+            if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Death"))
             {
-                ObjectPool.instance.InsertQueue(gameObject);
+                // 현재 애니메이션의 진행도가 1보다 크거나 같다면 메모리 풀에 반납합니다.
+                if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+                {
+                    ObjectPool.instance.InsertQueue(gameObject);
+                    transform.position = ObjectPool.instance.ActivePostion();
+                }
             }
         }
     }
@@ -37,10 +41,28 @@ public class Zombie : MonoBehaviour
         if (health <= 0)
         {
             agent.speed = 0;
+            animator.Play("Death");      
+        }
+    }
 
-            animator.Play("Death");
+    // 게임 오브젝트와 충돌 중 일때 호출되는 함수
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("Character"))
+        {
+            agent.speed = 0;
+            transform.LookAt(character.transform);
+            animator.SetBool("Attack", true);
+        }
+    }
 
-            transform.position = ObjectPool.instance.ActivePostion();
+    // 게임 오브젝트와 충돌이 벗어났을 때 호출되는 함수
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Character"))
+        {
+            agent.speed = 3.5f;
+            animator.SetBool("Attack", false);
         }
     }
 }

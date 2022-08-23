@@ -1064,7 +1064,8 @@ GameObject:
   - component: {fileID: 1998151318448748110}
   - component: {fileID: 132825288967230405}
   - component: {fileID: 5606045425791188067}
-  - component: {fileID: 4299373242992342966}
+  - component: {fileID: 7294324918476996888}
+  - component: {fileID: 6295664348778878705}
   m_Layer: 3
   m_Name: Special Zombie
   m_TagString: Enemy
@@ -1119,7 +1120,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1144,8 +1145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
---- !u!64 &4299373242992342966
-MeshCollider:
+--- !u!136 &7294324918476996888
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1154,10 +1155,23 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1445107091153370975, guid: 92ef5edd915e30442827ac4158504188, type: 3}
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!65 &6295664348778878705
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5048852329249388174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5073783839762400384
 GameObject:
   m_ObjectHideFlags: 0

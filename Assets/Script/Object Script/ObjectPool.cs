@@ -32,9 +32,9 @@ public class ObjectPool : MonoBehaviour
     }
 
     public void InsertQueue(GameObject tobj)
-    {
-        queue.Enqueue(tobj);
-        tobj.SetActive(false);
+    { 
+         queue.Enqueue(tobj);
+         tobj.SetActive(false);
     }
 
     public GameObject GetQueue()
