@@ -10,17 +10,22 @@ public class Zombie : MonoBehaviour
     private NavMeshAgent agent;
     private GameObject character;
 
-    void Start()
+   void Start()
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         character = GameObject.Find("Character");          
-    }  
+    }
+
+    // 메모리 풀에서 다시 활성화시킬 때 체력과 속도를 초기화시켜 줍니다.
+    private void OnEnable()
+    {
+        health = 100;
+        // agent.speed = 10;
+    }
 
     void Update()
     {
-        agent.SetDestination(character.transform.position);
-
         if (health <= 0)
         {
             // 애니메이터 컨트롤러에서 현재 애니메이터의 상태의 이름이 “Death”일 때 
@@ -33,6 +38,10 @@ public class Zombie : MonoBehaviour
                     transform.position = ObjectPool.instance.ActivePostion();
                 }
             }
+        }
+        else
+        {
+            agent.SetDestination(character.transform.position);
         }
     }
 
@@ -53,6 +62,15 @@ public class Zombie : MonoBehaviour
             agent.speed = 0;
             transform.LookAt(character.transform);
             animator.SetBool("Attack", true);
+
+            if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            {
+                if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+                {
+                    other.GetComponent<Control>().health -= 10;
+                    animator.Rebind(); 
+                }
+            }
         }
     }
 

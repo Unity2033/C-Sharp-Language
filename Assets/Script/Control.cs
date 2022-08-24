@@ -122,8 +122,8 @@ public class Control : MonoBehaviour
 
         if(Physics.Raycast(effect.transform.position, direction, out hit, distance, layer))
         {
-            hit.collider.GetComponent<Zombie>().health -= 20;
-            hit.collider.GetComponent<Zombie>().Death();        
+            hit.collider.GetComponentInParent<Zombie>().health -= 20;
+            hit.collider.GetComponentInParent<Zombie>().Death();        
         }
     }
 
