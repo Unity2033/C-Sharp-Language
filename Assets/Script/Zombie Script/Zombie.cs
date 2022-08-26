@@ -43,6 +43,7 @@ public class Zombie : MonoBehaviour
                 // 현재 애니메이션의 진행도가 1보다 크거나 같다면 메모리 풀에 반납합니다.
                 if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
                 {
+                    GameManager.instance.count++;
                     ObjectPool.instance.InsertQueue(gameObject);
                     transform.position = ObjectPool.instance.ActivePostion();
                 }
@@ -68,7 +69,9 @@ public class Zombie : MonoBehaviour
             {
                 if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
                 {
+                    character.GetComponent<Control>().ScreenCall();
                     character.GetComponent<Control>().health -= 10;
+
                     animator.Rebind();
                 }
             }

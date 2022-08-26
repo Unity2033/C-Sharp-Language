@@ -1064,7 +1064,6 @@ GameObject:
   - component: {fileID: 1998151318448748110}
   - component: {fileID: 132825288967230405}
   - component: {fileID: 5606045425791188067}
-  - component: {fileID: 6295664348778878705}
   m_Layer: 0
   m_Name: Special Zombie
   m_TagString: Enemy
@@ -1145,19 +1144,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   health: 100
---- !u!65 &6295664348778878705
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5048852329249388174}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5073783839762400384
 GameObject:
   m_ObjectHideFlags: 0

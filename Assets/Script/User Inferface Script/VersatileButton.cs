@@ -5,6 +5,7 @@ public class VersatileButton : MonoBehaviour
 {
     public void Scene(string name)
     {
+        Time.timeScale = 1;
         Loading.LoadScene(name);
     }
 
