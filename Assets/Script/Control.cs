@@ -14,16 +14,17 @@ public class Control : MonoBehaviour
     private float eulerAngleY;
 
     private CharacterController characterControl;
+    private Animator animator;
     private Vector3 moveForce;
     [SerializeField] float distance = 100.0f;
     [SerializeField] float speed;
     [SerializeField] float gravity = 20.0f;
-    [SerializeField] ParticleSystem effect;
     [SerializeField] LayerMask layer;
 
     void Start()
     {
         Cursor.visible = false;
+        animator = GetComponentInChildren<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
 
         characterControl = GetComponent<CharacterController>();
@@ -31,7 +32,12 @@ public class Control : MonoBehaviour
 
     void Update()
     {
-        if(health <= 0)
+        if (characterControl.velocity == Vector3.zero)
+        {
+            animator.SetBool("Run", false);
+        }
+
+        if (health <= 0)
         {
             Time.timeScale = 0;
             Cursor.visible = true;
@@ -42,10 +48,9 @@ public class Control : MonoBehaviour
         UpdateRotate(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
         if(Input.GetButtonDown("Fire1"))
-        {
-            effect.Play();
-            SoundSystem.instance.Sound(0);           
+        {        
             TwoStepRay();
+            SoundSystem.instance.Sound(0);
         }
 
         MoveTo(new Vector3( Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
@@ -77,6 +82,11 @@ public class Control : MonoBehaviour
 
     public void MoveTo(Vector3 direction)
     {
+        if (characterControl.velocity != Vector3.zero)
+        {
+            animator.SetBool("Run", true);
+        }
+
         // 카메라 회전으로 전방 방향이 변하기 때문에 회전 값을 곱해서 연산합니다.
         direction = transform.rotation * new Vector3(direction.x, 0, direction.z);
 
@@ -109,30 +119,19 @@ public class Control : MonoBehaviour
     {
         Ray ray;
         RaycastHit hit;
-        Vector3 target = Vector3.zero;
 
         // 화면의 중앙 좌표 (Cross Hair를 기준으로 Raycast를 연산합니다.)
         ray = Camera.main.ViewportPointToRay(Vector2.one * 0.5f);
 
         // 공격 사거리 안에 부딪히는 오브젝트가 있으면 target은 광선에 부딪힌 위치로 설정합니다.
-        if(Physics.Raycast(ray, out hit, distance))
+        if(Physics.Raycast(ray, out hit, distance, layer))
         {
-            target = hit.point;
-            Instantiate(effect, hit.point, hit.transform.rotation);
+            hit.collider.GetComponentInParent<Zombie>().health -= 20;         
         }
         // 공격 사거리 안에 부딪히는 오브젝트가 없으면 targer 포인터는 최대 사거리의 위치로 설정합니다.
         else
         {
-            target = ray.origin + ray.direction * distance;
-        }
-
-        // 첫 번째 Raycast 연산으로 얻어진 targer의 정보를 목표지점으로 설정하고, 
-        // 총의 입구에서 Raycast를 발사합니다.
-        Vector3 direction = (target - effect.transform.position).normalized;
-
-        if(Physics.Raycast(effect.transform.position, direction, out hit, distance, layer))
-        {
-            hit.collider.GetComponentInParent<Zombie>().health -= 20;       
+            return;
         }
     }
 

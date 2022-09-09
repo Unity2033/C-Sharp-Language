@@ -10,11 +10,18 @@ public class GameManager : MonoBehaviour
 
     public int count;
     public GameObject resultScreen;
-   
+
+    private void Awake()
+    {
+       if(instance == null)
+       {
+           instance = this;
+       }
+    }
+
     void Start()
     {
         Time.timeScale = 1;
-        instance = this;
     }
 
     void Update()
