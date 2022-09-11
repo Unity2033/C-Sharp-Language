@@ -16,17 +16,16 @@ public class Control : MonoBehaviour
     private CharacterController characterControl;
     private Animator animator;
     private Vector3 moveForce;
+    
     [SerializeField] float distance = 100.0f;
     [SerializeField] float speed;
     [SerializeField] float gravity = 20.0f;
     [SerializeField] LayerMask layer;
+    [SerializeField] GameObject resultWindow;
 
     void Start()
     {
-        Cursor.visible = false;
         animator = GetComponentInChildren<Animator>();
-        Cursor.lockState = CursorLockMode.Locked;
-
         characterControl = GetComponent<CharacterController>();
     }
 
@@ -37,17 +36,14 @@ public class Control : MonoBehaviour
             animator.SetBool("Run", false);
         }
 
-        if (health <= 0)
-        {
-            Time.timeScale = 0;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            GameManager.instance.resultScreen.SetActive(true);
-        }
-
         UpdateRotate(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-        if(Input.GetButtonDown("Fire1"))
+        if (health <= 0)
+        {
+            Death();
+        }
+
+        if (Input.GetButtonDown("Fire1"))
         {        
             TwoStepRay();
             SoundSystem.instance.Sound(0);
@@ -65,6 +61,16 @@ public class Control : MonoBehaviour
         characterControl.Move(moveForce * Time.deltaTime);
 
         Jump();
+    }
+
+    public void Death()
+    {
+        resultWindow.SetActive(true);
+
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        
     }
 
     public void Jump()

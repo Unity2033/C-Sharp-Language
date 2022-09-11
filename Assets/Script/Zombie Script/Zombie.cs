@@ -17,7 +17,7 @@ public class Zombie : MonoBehaviour
 
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        character = GameObject.Find("Character");          
+        character = GameObject.Find("Character(Clone)");          
     }
 
     // 메모리 풀에서 다시 활성화시킬 때 체력과 속도를 초기화시켜 줍니다.

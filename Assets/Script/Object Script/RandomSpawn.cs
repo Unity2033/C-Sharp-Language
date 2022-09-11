@@ -12,8 +12,8 @@ public class RandomSpawn : MonoBehaviour
     {
         while(true)
         {
-            ObjectPool.instance.GetQueue();
             yield return new WaitForSeconds(10f);
+            ObjectPool.instance.GetQueue();
         }
     }
 

@@ -3,13 +3,18 @@ using UnityEngine;
 
 public class VersatileButton : MonoBehaviour
 {
-    public void Scene(string name)
+    public void GameStart()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         Time.timeScale = 1;
-        Loading.LoadScene(name);
+        transform.root.gameObject.SetActive(false);
+
+        Instantiate(Resources.Load<GameObject>("Character"));
     }
 
-    public void Exit()
+    public void GameExit()
     {
 #if UNITY_EDITOR 
         UnityEditor.EditorApplication.isPlaying = false;      
