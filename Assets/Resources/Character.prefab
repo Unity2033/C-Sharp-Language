@@ -4160,3 +4160,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   resultWindow: {fileID: 1746919987310302007}
+  hitEffect: {fileID: 4754022381117834142, guid: 3ea8af7cb5530f34b9f3367e88a7a61c, type: 3}

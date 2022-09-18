@@ -6,11 +6,6 @@ public class FollowCamera : MonoBehaviour
 {
     [SerializeField] GameObject point;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         transform.RotateAround

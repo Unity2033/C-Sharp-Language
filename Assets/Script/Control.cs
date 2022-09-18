@@ -16,12 +16,13 @@ public class Control : MonoBehaviour
     private CharacterController characterControl;
     private Animator animator;
     private Vector3 moveForce;
-    
+ 
     [SerializeField] float distance = 100.0f;
     [SerializeField] float speed;
     [SerializeField] float gravity = 20.0f;
     [SerializeField] LayerMask layer;
     [SerializeField] GameObject resultWindow;
+    [SerializeField] GameObject hitEffect;
 
     void Start()
     {
@@ -130,15 +131,19 @@ public class Control : MonoBehaviour
         ray = Camera.main.ViewportPointToRay(Vector2.one * 0.5f);
 
         // 공격 사거리 안에 부딪히는 오브젝트가 있으면 target은 광선에 부딪힌 위치로 설정합니다.
-        if(Physics.Raycast(ray, out hit, distance, layer))
+        if (Physics.Raycast(ray, out hit, distance, layer))
         {
-            hit.collider.GetComponentInParent<Zombie>().health -= 20;         
+            hit.collider.GetComponentInParent<Zombie>().health -= 20;
+            Instantiate(hitEffect, hit.point, Quaternion.identity);
         }
         // 공격 사거리 안에 부딪히는 오브젝트가 없으면 targer 포인터는 최대 사거리의 위치로 설정합니다.
-        else
+        else if(Physics.Raycast(ray, out hit, distance))
         {
+            Instantiate(hitEffect, hit.point, Quaternion.identity);
             return;
         }
+
+        
     }
 
     public void ScreenCall()

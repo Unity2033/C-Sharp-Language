@@ -3,20 +3,6 @@ using System.Collections;
 
 public class RandomSpawn : MonoBehaviour
 {
-    void Start()
-    {
-        StartCoroutine(nameof(CreateZombie));
-    }
-
-    public IEnumerator CreateZombie()
-    {
-        while(true)
-        {
-            yield return new WaitForSeconds(10f);
-            ObjectPool.instance.GetQueue();
-        }
-    }
-
     public Vector3 RandomPosition()
     {
         // 원의 방정식

@@ -62,7 +62,12 @@ public class Zombie : MonoBehaviour
         if (Vector3.Distance(character.transform.position, transform.position) <= 2.5f)
         {
             agent.speed = 0;
-            transform.LookAt(character.transform);
+
+            if(character.transform.position.y <= 0.5f)
+            {
+                transform.LookAt(character.transform);
+            }
+           
             animator.SetBool("Attack", true);
 
             if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack"))
@@ -72,7 +77,7 @@ public class Zombie : MonoBehaviour
                     character.GetComponent<Control>().ScreenCall();
                     character.GetComponent<Control>().health -= 10;
 
-                    animator.Rebind();
+                    animator.Play("Attack", -1, 0f);
                 }
             }
         }
