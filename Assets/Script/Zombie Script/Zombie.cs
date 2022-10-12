@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
+
 
 public class Zombie : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class Zombie : MonoBehaviour
     private Animator animator;
     private NavMeshAgent agent;
     private GameObject character;
+    private Vector3 direction;
 
    void Start()
     {
@@ -27,9 +28,9 @@ public class Zombie : MonoBehaviour
     }
 
     void Update()
-    {                          
+    {
+        direction = character.transform.position;
         float tempHealth = 1 - (health / maxHealth);
-                                                                    
         animator.SetLayerWeight(animator.GetLayerIndex("Other Layer"), tempHealth);
 
         if (health <= 0)
@@ -52,29 +53,27 @@ public class Zombie : MonoBehaviour
         else
         {
             DistanceSensor();
-            agent.SetDestination(character.transform.position);
+            agent.SetDestination(direction);
         }
     }
 
     public void DistanceSensor()
     {
+        direction.y = 0;
+
         // 캐릭터의 위치와 자기 자신의 거리가 2.5보다 작다면 
         if (Vector3.Distance(character.transform.position, transform.position) <= 2.5f)
         {
-            agent.speed = 0;
+            agent.isStopped = true; 
 
-            if(character.transform.position.y <= 0.5f)
-            {
-                transform.LookAt(character.transform);
-            }
-           
+            transform.LookAt(direction);
+                      
             animator.SetBool("Attack", true);
 
             if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-            {
+            {           
                 if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
                 {
-                    character.GetComponent<Control>().ScreenCall();
                     character.GetComponent<Control>().health -= 10;
 
                     animator.Play("Attack", -1, 0f);
@@ -83,7 +82,7 @@ public class Zombie : MonoBehaviour
         }
         else // 캐릭터의 위치와 자기 자신의 거리가 2.5보다 멀어졌다면
         {
-            agent.speed = 5f;
+            agent.isStopped = false;
             animator.SetBool("Attack", false);
         }
     }

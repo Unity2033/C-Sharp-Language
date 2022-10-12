@@ -8,7 +8,6 @@ public class Control : MonoBehaviour
     public int health = 100;
     [SerializeField] float axisSpeed = 5.0f; // 카메라 x축과 y축의 회전 속도 
     [SerializeField] GameObject eye;
-    [SerializeField] Image bloodScreen;
 
     private float eulerAngleX;
     private float eulerAngleY;
@@ -28,6 +27,7 @@ public class Control : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         characterControl = GetComponent<CharacterController>();
+        
     }
 
     void Update()
@@ -44,7 +44,7 @@ public class Control : MonoBehaviour
             Death();
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && characterControl.velocity == Vector3.zero)
         {        
             TwoStepRay();
             SoundSystem.instance.Sound(0);
@@ -70,8 +70,7 @@ public class Control : MonoBehaviour
 
         Time.timeScale = 0;
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        
+        Cursor.lockState = CursorLockMode.None;       
     }
 
     public void Jump()
@@ -102,6 +101,7 @@ public class Control : MonoBehaviour
         moveForce = new Vector3(direction.x * speed, moveForce.y, direction.z * speed);
     }
 
+
     public void UpdateRotate(float mouseX, float mouseY)
     {
         eulerAngleY += mouseX * axisSpeed; // 마우스 좌/우 이동으로 카메라 y축 회전
@@ -124,11 +124,10 @@ public class Control : MonoBehaviour
 
     public void TwoStepRay()
     {
-        Ray ray;
         RaycastHit hit;
 
         // 화면의 중앙 좌표 (Cross Hair를 기준으로 Raycast를 연산합니다.)
-        ray = Camera.main.ViewportPointToRay(Vector2.one * 0.5f);
+        Ray ray = Camera.main.ViewportPointToRay(Vector2.one * 0.5f);
 
         // 공격 사거리 안에 부딪히는 오브젝트가 있으면 target은 광선에 부딪힌 위치로 설정합니다.
         if (Physics.Raycast(ray, out hit, distance, layer))
@@ -136,26 +135,10 @@ public class Control : MonoBehaviour
             hit.collider.GetComponentInParent<Zombie>().health -= 20;
             Instantiate(hitEffect, hit.point, Quaternion.identity);
         }
-        // 공격 사거리 안에 부딪히는 오브젝트가 없으면 targer 포인터는 최대 사거리의 위치로 설정합니다.
         else if(Physics.Raycast(ray, out hit, distance))
         {
             Instantiate(hitEffect, hit.point, Quaternion.identity);
             return;
-        }
-
-        
+        }      
     }
-
-    public void ScreenCall()
-    {
-        StartCoroutine(nameof(Damage));
-    }
-
-    public IEnumerator Damage()
-    {
-        bloodScreen.color = new Color(1, 0, 0, 1);
-        yield return new WaitForSeconds(0.1f);
-        bloodScreen.color = Color.clear;
-    }
-
 }
