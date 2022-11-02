@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Control : MonoBehaviour
 {
     public int health = 100;
     [SerializeField] float axisSpeed = 5.0f; // 카메라 x축과 y축의 회전 속도 
+
     [SerializeField] GameObject eye;
 
     private float eulerAngleX;
     private float eulerAngleY;
+    private int magazine = 10;
 
     private CharacterController characterControl;
     private Animator animator;
@@ -20,23 +21,16 @@ public class Control : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float gravity = 20.0f;
     [SerializeField] LayerMask layer;
-    [SerializeField] GameObject resultWindow;
     [SerializeField] GameObject hitEffect;
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        characterControl = GetComponent<CharacterController>();
-        
+        characterControl = GetComponent<CharacterController>();      
     }
 
     void Update()
-    {
-        if (characterControl.velocity == Vector3.zero)
-        {
-            animator.SetBool("Run", false);
-        }
-
+    {    
         UpdateRotate(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
         if (health <= 0)
@@ -44,13 +38,19 @@ public class Control : MonoBehaviour
             Death();
         }
 
-        if (Input.GetButtonDown("Fire1") && characterControl.velocity == Vector3.zero)
-        {        
+        if (Input.GetButtonDown("Fire1") && magazine-- > 0)
+        {      
             TwoStepRay();
             SoundSystem.instance.Sound(0);
+            animator.SetBool("Run", false);
+         
+            if (magazine <= 0)
+            {
+                StartCoroutine(Reload());
+            }
         }
 
-        MoveTo(new Vector3( Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
+        MoveTo(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
 
         // 바닥과 충돌하지 않았다면
         if(characterControl.isGrounded == false)
@@ -64,10 +64,21 @@ public class Control : MonoBehaviour
         Jump();
     }
 
+    private IEnumerator Reload()
+    {
+        animator.Play("Character_Reload");
+ 
+        yield return new WaitForSeconds(0.01f);
+
+        float curAnimationTime = animator.GetCurrentAnimatorStateInfo(0).length;
+  
+        yield return new WaitForSeconds(curAnimationTime);
+
+        magazine = 10;
+    }
+
     public void Death()
     {
-        resultWindow.SetActive(true);
-
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;       
@@ -88,9 +99,13 @@ public class Control : MonoBehaviour
 
     public void MoveTo(Vector3 direction)
     {
-        if (characterControl.velocity != Vector3.zero)
+        if(characterControl.velocity != Vector3.zero && !Input.GetButtonDown("Fire1"))
         {
             animator.SetBool("Run", true);
+        }
+        else if(characterControl.velocity == Vector3.zero)
+        {
+            animator.SetBool("Run", false);
         }
 
         // 카메라 회전으로 전방 방향이 변하기 때문에 회전 값을 곱해서 연산합니다.
