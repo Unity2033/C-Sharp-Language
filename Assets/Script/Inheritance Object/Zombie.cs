@@ -32,7 +32,6 @@ public class Zombie : Biology
                 // 현재 애니메이션의 진행도가 1보다 크거나 같다면 메모리 풀에 반납합니다.
                 if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
                 {
-                    GameManager.instance.count++;
                     ObjectPool.instance.InsertQueue(gameObject);
                     transform.position = ObjectPool.instance.ActivePostion();
                 }
@@ -60,9 +59,14 @@ public class Zombie : Biology
 
             if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
-                if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+                if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5f)
                 {
                     character.GetComponent<Character>().health -= 10;
+                    StartCoroutine(character.GetComponentInChildren<CameraShake>().Shake(0.5f, 0.25f));
+                }
+
+                if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+                {           
                     animator.Play("Attack", -1, 0f);
                 }
             }

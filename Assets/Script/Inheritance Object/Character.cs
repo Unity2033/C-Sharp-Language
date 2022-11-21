@@ -6,14 +6,12 @@ public class Character : Biology
 {
     private float mouseX;
     private int magazine = 10;
+    private float gravity = 40.0f;
 
     [SerializeField] float speed;
-    [SerializeField] float mouseSpeed;
-    [SerializeField] float gravity = 20.0f;
+    [SerializeField] float mouseSpeed; 
     [SerializeField] float distance = 100.0f;
-
     [SerializeField] LayerMask layer;
-    [SerializeField] GameObject hitEffect;
 
     void Start()
     {
@@ -24,8 +22,8 @@ public class Character : Biology
     void Update()
     {    
         if (Input.GetButtonDown("Fire1") && magazine-- > 0)
-        {      
-            TwoStepRay();
+        {
+            ScopeRay();
             audioSource.Play();
 
             if (magazine <= 0)
@@ -34,25 +32,24 @@ public class Character : Biology
             }
         }
 
-        direction.y -= gravity * Time.deltaTime;
-
         direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        direction = characterControl.transform.TransformDirection(direction);
-
-        characterControl.Move(direction * speed * Time.deltaTime);
-
-        mouseX += Input.GetAxis("Mouse X") * speed;
-        transform.eulerAngles = new Vector3(0, mouseX, 0);
-
+ 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // 바닥과 충돌한 상태라면
-            if (characterControl.isGrounded)
+            if (characterControl.collisionFlags == CollisionFlags.Below)
             {
                 // 점프를 할 수 있도록 설정합니다.
-                direction.y = 7.5f;
+                direction.y = 20f;
             }
         }
+
+        direction.y -= gravity * Time.deltaTime;
+
+        characterControl.Move(transform.TransformDirection(direction) * speed * Time.deltaTime);
+
+        mouseX += Input.GetAxis("Mouse X") * speed;
+        transform.eulerAngles = new Vector3(0, mouseX, 0);
     }
 
     private IEnumerator Reload()
@@ -68,7 +65,7 @@ public class Character : Biology
         magazine = 10;
     }
 
-    public void TwoStepRay()
+    public void ScopeRay()
     {
         RaycastHit hit;
 
@@ -79,12 +76,11 @@ public class Character : Biology
         if (Physics.Raycast(ray, out hit, distance, layer))
         {
             hit.collider.GetComponentInParent<Zombie>().health -= 20;
-            Instantiate(hitEffect, hit.point, Quaternion.identity);
+
         }
         else if(Physics.Raycast(ray, out hit, distance))
         {
-            Instantiate(hitEffect, hit.point, Quaternion.identity);
-            return;
+          
         }      
     }
 }
