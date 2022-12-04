@@ -3,6 +3,25 @@ using System.Collections;
 
 public class RandomSpawn : MonoBehaviour
 {
+
+    private void Start()
+    {
+        InvokeRepeating(nameof(CreateObject), 0, 10);
+    }
+
+    void CreateObject()
+    {
+     
+            GameObject zombie = ObjectPool.instance.GetPooled();
+         
+            if(zombie != null)
+            {
+                zombie.transform.position = ObjectPool.instance.ActivePostion();
+                zombie.SetActive(true);
+            }
+        
+    }
+
     public Vector3 RandomPosition()
     {
         // 원의 방정식

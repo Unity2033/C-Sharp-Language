@@ -7,8 +7,9 @@ public class ObjectPool : MonoBehaviour
     public RandomSpawn spawn;
     public static ObjectPool instance;
 
-    // 게임 오브젝트를 담을 수 있는 자료구조 Queue를 선언합니다.
-    public Queue<GameObject> queue = new Queue<GameObject>();
+    private List<GameObject> zombieContainer= new List<GameObject>();
+
+    [SerializeField] GameObject zombie;
 
     private void Awake()
     {
@@ -17,22 +18,17 @@ public class ObjectPool : MonoBehaviour
     }
 
     void Start()
-    {
-        ZombiePool zombiePool = new ZombiePool();
-        zombiePool.zombie = Resources.Load<GameObject>("Special Zombie");
-        zombiePool.CreateObject(zombiePool.zombie, ActivePostion());
-
-        StartCoroutine(zombiePool.CreateZombie());
+    {  
+        CreateObject(zombie, ActivePostion());
     }
 
-
-    public virtual void CreateObject(GameObject tObject, Vector3 tVector)
+    public void CreateObject(GameObject parameterObject, Vector3 tVector)
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 5; i++)
         {
-            GameObject tempPrefab = Instantiate(tObject, tVector, Quaternion.identity);
-            queue.Enqueue(tempPrefab);
-            tempPrefab.SetActive(false);
+            GameObject tempObject = Instantiate(parameterObject, tVector, Quaternion.identity);
+            tempObject.SetActive(false);
+            zombieContainer.Add(tempObject);
         }
     }
     
@@ -41,17 +37,16 @@ public class ObjectPool : MonoBehaviour
         return spawn.RandomPosition();
     }
 
-    public void InsertQueue(GameObject tobj)
-    { 
-         queue.Enqueue(tobj);
-         tobj.SetActive(false);
-    }
-
-    public virtual GameObject GetQueue()
+    public GameObject GetPooled()
     {
-        GameObject tempZombie = queue.Dequeue();
-        tempZombie.SetActive(true);
+        for(int i = 0; i < zombieContainer.Count; i++)
+        {
+            if(zombieContainer[i].activeInHierarchy == false)
+            {
+                return zombieContainer[i];
+            }
+        }
 
-        return tempZombie;
+        return null;
     }
 }

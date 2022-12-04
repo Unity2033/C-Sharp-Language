@@ -32,13 +32,13 @@ public class Zombie : Biology
                 // 현재 애니메이션의 진행도가 1보다 크거나 같다면 메모리 풀에 반납합니다.
                 if (animator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
                 {
-                    ObjectPool.instance.InsertQueue(gameObject);
-                    transform.position = ObjectPool.instance.ActivePostion();
+                    gameObject.SetActive(false);
                 }
             }
         }
         else
         {
+            agent.speed = 5;
             DistanceSensor();
             agent.SetDestination(direction);
         }

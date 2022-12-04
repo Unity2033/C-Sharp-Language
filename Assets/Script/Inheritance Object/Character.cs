@@ -1,22 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : Biology
 {
     private float mouseX;
     private int magazine = 10;
-    private float gravity = 40.0f;
+    private float gravity = 50.0f;
 
     [SerializeField] float speed;
     [SerializeField] float mouseSpeed; 
     [SerializeField] float distance = 100.0f;
     [SerializeField] LayerMask layer;
 
+    [SerializeField] Image bullet;
+    [SerializeField] Transform parentPosition;
+
+    private Stack<Image> bulletContainer = new Stack<Image>();
+
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        for(int i = 0; i < 10; i++)
+        {        
+            Image bulletObject = Instantiate(bullet);
+            bulletObject.rectTransform.SetParent(parentPosition.transform);
+            bulletObject.transform.position = new Vector2(parentPosition.transform.position.x, bulletObject.transform.position.y * i / 2);
+            bulletContainer.Push(bulletObject);
+        }
     }
 
     void Update()
@@ -25,7 +39,7 @@ public class Character : Biology
         {
             ScopeRay();
             audioSource.Play();
-
+   
             if (magazine <= 0)
             {
                 StartCoroutine(Reload());

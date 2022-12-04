@@ -3397,7 +3397,8 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 8
-  hitEffect: {fileID: 4754022381117834142, guid: 3ea8af7cb5530f34b9f3367e88a7a61c, type: 3}
+  bullet: {fileID: 3631237977008897656, guid: 223ef6f9fabbebf46b36de52f9589a8b, type: 3}
+  parentPosition: {fileID: 2666363254207155894}
 --- !u!82 &5568086705223056251
 AudioSource:
   m_ObjectHideFlags: 0

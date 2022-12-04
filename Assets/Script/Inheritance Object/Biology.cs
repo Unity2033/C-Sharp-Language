@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,6 +20,6 @@ public class Biology : MonoBehaviour
 
     protected void OnEnable()
     {
-        health = 100;
+        health = 100; 
     }
 }
