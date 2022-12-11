@@ -16,15 +16,26 @@ public class SceneLoading : MonoBehaviour
 
     private IEnumerator LoadSceneAsync(int index)
     {
+        screen.SetActive(true);
+
         AsyncOperation operation = SceneManager.LoadSceneAsync(index);
 
-        screen.SetActive(true);
+        progressFill.fillAmount = 0;
+        operation.allowSceneActivation = false;
+
+        float progress = 0f;
 
         while (!operation.isDone)
         {
-            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            progress = Mathf.MoveTowards(progress, operation.progress, Time.deltaTime);
 
             progressFill.fillAmount = progress;
+
+            if(progress >= 0.9f)
+            {
+                progressFill.fillAmount = 1f;
+                operation.allowSceneActivation = true;
+            }
 
             yield return null;
         }

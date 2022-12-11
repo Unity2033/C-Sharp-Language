@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     public RandomSpawn spawn;
+
     public static ObjectPool instance;
 
     private List<GameObject> zombieContainer= new List<GameObject>();

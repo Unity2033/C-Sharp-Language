@@ -7,39 +7,35 @@ public class Character : Biology
 {
     private float mouseX;
     private int magazine = 10;
-    private float gravity = 50.0f;
+    private float gravity = 100.0f;
 
     [SerializeField] float speed;
     [SerializeField] float mouseSpeed; 
     [SerializeField] float distance = 100.0f;
+    [SerializeField] ParticleSystem hitEffect;
     [SerializeField] LayerMask layer;
 
-    [SerializeField] Image bullet;
-    [SerializeField] Transform parentPosition;
-
-    private Stack<Image> bulletContainer = new Stack<Image>();
+    [SerializeField] Text bulletCount;
+    [SerializeField] Text healthValue;
 
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-
-        for(int i = 0; i < 10; i++)
-        {        
-            Image bulletObject = Instantiate(bullet);
-            bulletObject.rectTransform.SetParent(parentPosition.transform);
-            bulletObject.transform.position = new Vector2(parentPosition.transform.position.x, bulletObject.transform.position.y * i / 2);
-            bulletContainer.Push(bulletObject);
-        }
     }
 
     void Update()
-    {    
-        if (Input.GetButtonDown("Fire1") && magazine-- > 0)
+    {
+
+        healthValue.text = health + " / 100";
+        bulletCount.text = magazine + " / 10";
+
+        if (Input.GetButtonDown("Fire1") && magazine > 0)
         {
             ScopeRay();
             audioSource.Play();
-   
+            magazine--;
+
             if (magazine <= 0)
             {
                 StartCoroutine(Reload());
@@ -54,7 +50,7 @@ public class Character : Biology
             if (characterControl.collisionFlags == CollisionFlags.Below)
             {
                 // 점프를 할 수 있도록 설정합니다.
-                direction.y = 20f;
+                direction.y = 30f;
             }
         }
 
@@ -63,6 +59,7 @@ public class Character : Biology
         characterControl.Move(transform.TransformDirection(direction) * speed * Time.deltaTime);
 
         mouseX += Input.GetAxis("Mouse X") * speed;
+
         transform.eulerAngles = new Vector3(0, mouseX, 0);
     }
 
@@ -90,11 +87,7 @@ public class Character : Biology
         if (Physics.Raycast(ray, out hit, distance, layer))
         {
             hit.collider.GetComponentInParent<Zombie>().health -= 20;
-
-        }
-        else if(Physics.Raycast(ray, out hit, distance))
-        {
-          
-        }      
+            Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        }     
     }
 }

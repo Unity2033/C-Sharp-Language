@@ -10,8 +10,7 @@ public class RandomSpawn : MonoBehaviour
     }
 
     void CreateObject()
-    {
-     
+    {  
             GameObject zombie = ObjectPool.instance.GetPooled();
          
             if(zombie != null)
