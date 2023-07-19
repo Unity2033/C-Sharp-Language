@@ -32,5 +32,8 @@
     <ClInclude Include="(2023.7.17) 스택.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="(2023.7.18) 거품 정렬과 선택 정렬.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

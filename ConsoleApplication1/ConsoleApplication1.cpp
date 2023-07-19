@@ -1,108 +1,91 @@
 #include <iostream>
+#include <vector>
 
-#define SIZE 5
+template <typename T>
+class VECTOR
+{
+private :
+	int capacity = 0;
+	int size = 0;
+	
+	T* array;
+
+public:
+	VECTOR()
+	{
+		capacity = 1;
+		array = new T[capacity];
+	}
+
+	void Push_Back(T data)
+	{
+		if (size => capacity)
+		{
+			capacity = capacity * 2;
+
+			Resize(capacity);
+		}
+
+		array[size++] = data;
+	}
+
+	void Pop_Back()
+	{
+		if (size <= 0)
+		{
+			return;
+		}
+
+		array[--size] = NULL;
+	}
+
+	void Resize(int size)
+	{
+		// capacity에 새로운 size값을 설정한다.
+		capacity = size;
+
+		// 새로운 포인터 변수를 생성해서 새롭게 만들어진
+		// 메모리 공간을 가리키도록 설정합니다.
+		T * tempArray = new T[size];
+
+		// 새로운 메모리 공간의 값을 초기화합니다.
+		for (int i = 0; i < size; i++)
+		{
+			tempArray[i] = NULL;
+		}
+
+		// 기존 배열에 있는 값을 복사해서 새로운 배열에 넣어줍니다.
+		for (int i = 0; i < this->size; i++)
+		{
+			tempArray[i] = array[i];
+		}
+		
+		// array에 메모리 주소를 해제합니다.
+		delete array;
+		
+		// array에 새로 할당한 메모리의 주소를 저장합니다.
+		array = tempArray;
+
+	}
+
+	int Size()
+	{
+		return size;
+	}
+
+	T & operator [ ] (const int & value)
+	{
+		return array[value];
+	}
+
+	~VECTOR()
+	{
+		delete array;
+	}
+};
 
 int main()
 {
-#pragma region 시간 복잡도
-	// 컴퓨터 프로그램의 입력 값과 연산 수행 시간의
-	// 상관관계를 나타내는 척도입니다.
-
-	// Big-O 표기법 
-	// '입력값의 변화에 따라 연산을 수행할 때,
-	// 연산 횟수에 비해 시간이 얼마만큼 걸리는 지 나타내는 척됴입니다.
-
-	// 최악의 경우를 고려하므로, 프로그램이 실행되는
-	// 과정에서 소요되는 최악의 시간까지 고려할 수 있기 때문입니다.
-
-	// O(1) 상수 시간 복잡도
-	/*
-	// 입력값이 증가하더라도 시간이 늘어나지 않는 시간 복잡도입니다.
-
-	// ex 배열의 인덱스 접근
-	// int buffer[100];
-	// buffer[50] = 10;
-	// std::cout << buffer[50] << std::endl;
-	*/
-
-	// O(n) 선형 시간 복잡도
-	/*
-	   입력값이 증가함에 따라 시간 또한 같은 비율로
-	   증가하는 시간 복잡도입니다.
-
-	   // 입력 1
-	   // 시간 -> 1초
-
-	   // 입력 100
-	   // 시간 -> 100초
-	
-       for(int i = 0; i < 입력값(N); i++)
-	   {
-
-	   }
-	*/
-
-	// O(log n)	로그 시간 복잡도
-	/*
-	// 입력 데이터의 크기가 커질수록 처리 시간이 로그(log) 만큼 
-	// 짧아지는 시간 복잡도
-	*/
-
-	// O(n^2) 2차 시간 복잡도
-	/*
-	// 입력값이 증가함에 따라 시간이 n의 제곱수의
-	// 비율로 증가하는 시간 복잡도입니다.
-
-	// ex) 
-	// for(int i = 0; i < n; i++)
-	// {
-	//    for(int j = 0; j < n; j++)
-	//    {
-    //
-    //    }
-	// }
-	*/
-
-	// O(2n) 기하 급수적 시간 복잡도
-	// ex) 재귀 함수 (피보나치 수열)
-#pragma endregion
-
-#pragma region 거품 정렬
-	// 서로 인접한 두 원소를 검사하여 정렬하는 알고리즘입니다.
-
-	// 시간 복잡도 O(n^2)
-
-	//	int sortBuffer[SIZE] = { 7,4,5,1,3 };
-	//	
-	//	for (int i = 0; i < SIZE; i++)
-	//	{
-	//		for (int j = 0; j < (SIZE - i) - 1; j++)
-	//		{
-	//			if (sortBuffer[j] > sortBuffer[j + 1])
-	//			{
-	//				std::swap(sortBuffer[j], sortBuffer[j + 1]);
-	//			}
-	//		}
-	//	}
-	//	
-	//	for (int i = 0; i < SIZE; i++)
-	//	{
-	//		std::cout << sortBuffer[i] << " ";
-	//	}
-
-#pragma endregion
-
-#pragma region 선택 정렬
-	// 정렬되지 않은 데이터들에 대해 가장
-	// 작은 데이터를 찾아서 가장 앞에 있는 데이터와 교환하는
-	// 알고리즘입니다.
-
-	int selectBuffer[SIZE] = { 6,2,11,4,3 };
-
-#pragma endregion
-
-
-
 
 }
 
