@@ -1,37 +1,32 @@
 #include <iostream>
-#include <queue>
 
-
-#define SIZE 5
+#define SIZE 4
 
 template <typename T>
-class LinearQueue
+class CircleQueue
 {
 private :
 	int front;
 	int rear;
-	int size;
-
-	T array[SIZE];
-
-public :
-	LinearQueue()
+	T buffer[SIZE] = { 0, };
+public:
+	CircleQueue()
 	{
-		front = 0;
-		rear = 0;
-		size = 0;
+		front = SIZE - 1;
+		rear = SIZE - 1;
 	}
 
 	void Push(T data)
 	{
 		if (IsFull() == true)
 		{
-			std::cout << "Queue의 사이즈가 가득 찼습니다." << std::endl;
+			std::cout << "Queue가 가득 찼습니다." << std::endl;
+	    }
+		else
+		{
+			rear = (rear + 1) % SIZE;
+			buffer[rear] = data;
 		}
-		
-		array[rear++] = data;
-
-		size++;
 	}
 
 	void Pop()
@@ -39,27 +34,12 @@ public :
 		if (Empty() == true)
 		{
 			std::cout << "Queue가 비어있습니다." << std::endl;
-			exit(1);
 		}
-
-		array[front++] = NULL;
-
-		size--;
-	}
-
-	int & Size()
-	{
-		return size;
-	}
-
-	T & Front()
-	{
-		return array[front];
-	}
-
-	T & Back()
-	{
-		return array[rear-1];
+		else
+		{
+			front = (front + 1) % SIZE;
+			buffer[front] = NULL;
+		}
 	}
 
 	bool Empty()
@@ -76,7 +56,7 @@ public :
 
 	bool IsFull()
 	{
-		if (SIZE <= rear)
+		if (front == (rear + 1) % SIZE)
 		{
 			return true;
 		}
@@ -85,37 +65,40 @@ public :
 			return false;
 		}
 	}
+
+	T & Front()
+	{
+		return buffer[(front + 1) % SIZE];
+	}
+
+	T & Back()
+	{
+		return buffer[rear];
+	}
 };
 
 int main()
 {
-#pragma region 선형 큐
-	// 배열의 공간에 들어간 데이터가 고정되어
-	// 데이터를 빼내더라도 초기화하지 않으면
-	// 원래 데이터가 있던 배열의 자리에 더 이상
-	// 다른 것이 들어갈 수 없는 형태의 Queue입니다.
+#pragma region 원형 큐
+	// 물리적으로는 선형 구조를 가지고 있으며, 
+	// 큐의 시작점과 끝점을 연결한 큐입니다.
 
-	LinearQueue<int> linearQueue;
+	CircleQueue<int> circleQueue;
 
-	linearQueue.Push(10);
-	linearQueue.Push(20);
-	linearQueue.Push(30);
-	linearQueue.Push(40);
-	linearQueue.Push(50);
+	circleQueue.Push(10);
+	circleQueue.Push(20);
+	circleQueue.Push(30);
 
-	linearQueue.Pop();
-	linearQueue.Pop();	
-	linearQueue.Pop();
-	linearQueue.Pop();
-	linearQueue.Pop();
+	// circleQueue.Push(40);
 
-	linearQueue.Push(9999);
+	circleQueue.Pop();
+	circleQueue.Pop();
+	circleQueue.Pop();
 
-	std::cout << linearQueue.Size() << std::endl;
-	std::cout << linearQueue.Front() << std::endl;
-	std::cout << linearQueue.Back() << std::endl;
+	circleQueue.Push(999);
 
-
+	std::cout << circleQueue.Front() << std::endl;
+	std::cout << circleQueue.Back() << std::endl;
 #pragma endregion
 
 
