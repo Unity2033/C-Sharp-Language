@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 
 #define SIZE 4
@@ -5,7 +6,7 @@
 template <typename T>
 class CircleQueue
 {
-private :
+private:
 	int front;
 	int rear;
 	T buffer[SIZE] = { 0, };
@@ -21,7 +22,7 @@ public:
 		if (IsFull() == true)
 		{
 			std::cout << "Queue°¡ °¡µæ Ã¡½À´Ï´Ù." << std::endl;
-	    }
+		}
 		else
 		{
 			rear = (rear + 1) % SIZE;
@@ -66,12 +67,12 @@ public:
 		}
 	}
 
-	T & Front()
+	T& Front()
 	{
 		return buffer[(front + 1) % SIZE];
 	}
 
-	T & Back()
+	T& Back()
 	{
 		return buffer[rear];
 	}
@@ -100,8 +101,6 @@ int main()
 	std::cout << circleQueue.Front() << std::endl;
 	std::cout << circleQueue.Back() << std::endl;
 #pragma endregion
-
-
 }
 
 
