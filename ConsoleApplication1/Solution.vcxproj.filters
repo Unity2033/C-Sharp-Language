@@ -50,5 +50,8 @@
     <ClInclude Include="(2023.7.25) 트리.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="(2023.7.26) 힙.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
