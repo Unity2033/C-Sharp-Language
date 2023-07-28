@@ -117,6 +117,7 @@
     <ClInclude Include="%282023.7.24%29 삽입 정렬.h" />
     <ClInclude Include="(2023.7.25) 트리.h" />
     <ClInclude Include="(2023.7.26) 힙.h" />
+    <ClInclude Include="(2023.7.27) 계수 정렬.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
