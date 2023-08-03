@@ -62,5 +62,8 @@
     <ClInclude Include="(2023.8.1) 그래프.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="(2023.8.2) 그래프 탐색 방법.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -120,6 +120,7 @@
     <ClInclude Include="(2023.7.27) 계수 정렬.h" />
     <ClInclude Include="(2023.7.28) 해시 테이블.h" />
     <ClInclude Include="(2023.8.1) 그래프.h" />
+    <ClInclude Include="(2023.8.2) 그래프 탐색 방법.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
