@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\C# 언어\\Algorithm\\Second_Class\\Class2th.csproj",
-      "projectName": "Class2th",
-      "projectPath": "C:\\Users\\Administrator\\Desktop\\C# 언어\\Algorithm\\Second_Class\\Class2th.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\C# 언어\\Algorithm\\Class3th\\Class3th.csproj",
+      "projectName": "Class3th",
+      "projectPath": "C:\\Users\\Administrator\\Desktop\\C# 언어\\Algorithm\\Class3th\\Class3th.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Desktop\\C# 언어\\Algorithm\\Second_Class\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\Desktop\\C# 언어\\Algorithm\\Class3th\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",

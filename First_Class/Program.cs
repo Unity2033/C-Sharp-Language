@@ -1,4 +1,4 @@
-﻿namespace First_Class
+﻿namespace Class1th
 {
     // 접근 지정자 class 클래스 이름
     // public, protected, private

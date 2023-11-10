@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\C# 언어\\Algorithm\\First_Class\\First_Class.csproj",
-      "projectName": "First_Class",
-      "projectPath": "C:\\Users\\Administrator\\Desktop\\C# 언어\\Algorithm\\First_Class\\First_Class.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\C# 언어\\Algorithm\\First_Class\\Class1th.csproj",
+      "projectName": "Class1th",
+      "projectPath": "C:\\Users\\Administrator\\Desktop\\C# 언어\\Algorithm\\First_Class\\Class1th.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Administrator\\Desktop\\C# 언어\\Algorithm\\First_Class\\obj\\",
       "projectStyle": "PackageReference",

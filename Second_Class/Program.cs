@@ -1,4 +1,4 @@
-﻿namespace Second_Class
+﻿namespace Class2th
 {
     public class Item
     {
