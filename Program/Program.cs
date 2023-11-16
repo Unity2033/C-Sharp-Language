@@ -12,15 +12,48 @@
             #endregion
 
             #region OCP 5대 원칙
-            Marine marine = new Marine();
-            Firebet firebet = new Firebet();
-            Ghost ghost = new Ghost();
+            //Marine marine = new Marine();
+            //Firebet firebet = new Firebet();
+            //Ghost ghost = new Ghost();
 
-            UnitManager unitManager = new UnitManager();
+            //UnitManager unitManager = new UnitManager();
 
-            unitManager.Commend(marine);
-            unitManager.Commend(firebet);
-            unitManager.Commend(ghost);
+            //unitManager.Commend(marine);
+            //unitManager.Commend(firebet);
+            //unitManager.Commend(ghost);
+
+            #endregion
+
+            #region ISP 5대 원칙
+            //Wraith wraith = new Wraith();
+
+            //wraith.Attack();
+            //wraith.Move();
+            //wraith.Skill();
+
+            //BattleCruiser battleCruiser = new BattleCruiser();
+
+            //battleCruiser.Attack();
+            //battleCruiser.Move();
+            //battleCruiser.Skill();
+
+            //Valkyrie valkyrie = new Valkyrie();
+
+            //valkyrie.Attack();
+            //valkyrie.Move();
+
+            //DropShip dropShip = new DropShip();
+
+            //dropShip.Move();
+            //dropShip.Skill();
+            #endregion
+
+            #region DIP 5대 원칙
+
+            Character character = new Character(100, new Knife());
+
+            character.ChangeWeapon(new Axe());
+            character.ChangeWeapon(new Rifle());
 
             #endregion
         }
