@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Program
+namespace Class6th
 {
     #region 의존관계 역전 원칙
     // 상위 계층이 하위 계층에 의존하는 전통적인 관계를
