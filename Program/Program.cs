@@ -1,40 +1,29 @@
-﻿namespace Program
+﻿using System.Net.Http.Headers;
+
+namespace Program
 {
     internal class Program
-    {
-        static void QuickSort(int [ ] array, int left, int right)
-        {
-            // 1. left가 right 크거나 같아졌을 때
-            if(left >= right)
-            {
-                return;
-            }
+    {   
 
-        }
-
-        static void Swap(ref int x, ref int y)
-        {
-            int temporary = x;
-            x = y;
-            y = temporary;
-        }
 
         static void Main(string[] args)
         {
-            #region 퀵 정렬
-            // 기준점을 획득한 다음 해당 기준점을 기준으로
-            // 배열을 나누고 한 쪽에는 기준점보다 작은 항목들이
-            // 위치하고 다른 쪽에는 기준점 보다 큰 항목들이 위치합니다.
+           
 
-            // 나뉘어진 하위 배열에 대해 재귀적으로 퀵 정렬을 호출하여
-            // 모든 배열이 기본 배열이 될 때까지 반복하면서 정렬하는 알고리즘입니다.
+            #region 병합 정렬
+            // 하나의 리스트를 두 개의 균등한 크기로 분할하고
+            // 분할된 부분 리스트를 정렬한 다음, 두 개의 정렬된 부분 
+            // 리스트를 합하여 전체가 정렬된 리스트가 되게 하는 방법입니다.
 
-            // 시간복잡도 : O(log n)
+            // 분할 : 입력 배열을 같은 크기의 2개의 부분 배열로 분할합니다.
+
+            // 정복 : 부분 배열을 정렬하며, 부분 배열의 크기가 충분히 작지 않으면
+            // 순환 호출을 이용하여 다시 분할 정복을 실행합니다.
+
+            // 결합 : 정렬된 부분 배열들을 하나의 배열에 병합합니다.
 
 
             #endregion
-
-
         }
     }
 }
