@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Program
+namespace Class14th
 {
     internal class AdjacencyMatrix<T>
     {
