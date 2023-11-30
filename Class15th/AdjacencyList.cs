@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Program
+namespace Class15th
 {
     internal class AdjacencyList
     {
@@ -15,9 +16,15 @@ namespace Program
         // 그래프의 인접 리스트
         private List<int> [ ] adjacencyList;
 
+        // 방문한 노드를 추적하기 위한 배열
+        bool [] visited;
+
         public AdjacencyList(int vertexSize)
         {
             size = vertexSize;
+
+            visited = new bool[vertexSize];
+
             adjacencyList = new List<int>[vertexSize];
 
             for(int i = 0; i < vertexSize; i++)
@@ -48,9 +55,6 @@ namespace Program
 
         public void BFS(int root)
         {
-            // 방문한 노드를 추적하기 위한 배열
-            bool [] visited = new bool[size];
-
             // Queue 컬렉션을 선언합니다.
             Queue<int> queue = new Queue<int>();
 
@@ -78,6 +82,24 @@ namespace Program
 
                         queue.Enqueue(adjacencyList[index][i]);
                     }
+                }
+            }
+        }
+
+        public void DFS(int root)
+        {
+            // 현재 노드를 방문한 것으로 표시합니다.
+            visited[root] = true;
+
+            // 현재 노드를 출력합니다.
+            Console.Write(root + " ");
+
+            // 현재 노드와 연결된 방문하지 않은 노드를 재귀적으로 탐색합니다.
+            foreach (int index in adjacencyList[root])
+            {
+                if (visited[index] == false)
+                {
+                    DFS(index);
                 }
             }
         }
