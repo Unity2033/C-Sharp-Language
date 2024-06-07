@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "4tYVppMLyvQrg69An7+JHp6uut5nwq/v6C1H17Nn8hk2EHRZ557xox562vd5XXC0A71S0uOrInvfS4FNBDqskA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Class13th (SOLID Principle)\\Class13th (SOLID Principle).csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.29\\microsoft.netcore.app.host.win-x64.6.0.29.nupkg.sha512"
+  ],
+  "logs": []
+}

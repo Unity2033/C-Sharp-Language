@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "awYx4CD1ovUhI/qZ46dfhFtAhVdmDKP9b57YSYBjN+ASlyHtqD9VNy1K45lmUoAbjwblLq97MI0HmTS5LSaSXQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Class8th (Polymorphism)\\Class8th (Polymorphism).csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.29\\microsoft.netcore.app.host.win-x64.6.0.29.nupkg.sha512"
+  ],
+  "logs": []
+}
