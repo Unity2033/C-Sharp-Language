@@ -1,112 +1,109 @@
 ﻿#include <iostream>
 
+#define SIZE 6
+
 using namespace std;
 
-class String
+template <typename KEY, typename VALUE>
+class HashTable
 {
-private:
-	int size;
-	char * pointer;
-
-public:
-	String()
+private:   
+	struct Node
 	{
-		size = 0;
-		pointer = nullptr;
+		KEY key;
+		VALUE value;
+
+		Node * next;
+	};
+
+	struct Bucket
+	{
+		int count;
+		Node* head;
+	};
+
+	Bucket bucket[SIZE];
+public:
+	HashTable()
+	{
+		for (int i = 0; i < SIZE; i++)
+		{
+			bucket[i].count = 0;
+			bucket[i].head = nullptr;
+		}
 	}
 
-	void operator = (const char* word)
+	template<typename T>
+	int HashFunction(T key)
 	{
-		size = strlen(word) + 1;
+		unsigned int hashIndex = (int)key % SIZE;
 
-		if (pointer == nullptr)
+		return hashIndex;
+	}
+
+	template<>
+	int HashFunction(const char * key)
+	{
+	    int result = 0;
+
+		for (int i = 0; i < strlen(key); i++)
 		{
-			pointer = new char[size];
+			result += key[i];
+		}				  
 
-			for (int i = 0; i < size; i++)
-			{
-				pointer[i] = word[i];
-			}
+		unsigned int hashIndex = result % SIZE;
+
+		return hashIndex;
+	}
+
+	void Insert(KEY key, VALUE value)
+	{
+		// 해시 함수를 통해서 값을 받는 임시 변수
+		int hashIndex = HashFunction(key);
+
+		// 새로운 노드를 생성합니다.
+		Node * newNode = CreateNode(key, value);
+
+		// 노드가 1개라도 존재하지 않는다면
+		if (bucket[hashIndex].count == 0)
+		{
+			// bucket[hashIndex]의 head 포인터가 newNode를 가리키게 합니다.
+			bucket[hashIndex].head = newNode;
 		}
 		else
 		{
-			char * newPointer = new char[size];
+			newNode->next = bucket[hashIndex].head;
 
-			for (int i = 0; i < size; i++)
-			{
-				newPointer[i] = word[i];
-			}
-
-			delete [ ] pointer;
-
-			pointer = newPointer;
+			bucket[hashIndex].head = newNode;
 		}
 
+		// bucket[hashIndex]의 count를 증가시킵니다.
+		bucket[hashIndex].count++;
 	}
 
-	void Append(const char * word)
+	Node * CreateNode(KEY key, VALUE value)
 	{
-		size = strlen(pointer) + strlen(word) + 1;
+		Node * newNode = new Node();
 
-		char * newPointer = new char[size];
+		newNode->key = key;
 
-		for (int i = 0; i < strlen(pointer); i++)
-		{
-			newPointer[i] = pointer[i];
-		}
+		newNode->value = value;
 
-		for (int i = 0; i < strlen(word); i++)
-		{
-			newPointer[strlen(pointer) + i] = word[i];
-		}
+		newNode->next = nullptr;
 
-		delete [ ] pointer;
-
-		pointer = newPointer;
-
+		return newNode;
 	}
-
-	const int & Size()
-	{
-		return size - 1;
-	}
-
-	const char & operator [] (const int& index)
-	{
-		return pointer[index];
-	}
-
-	~String()
-	{
-		if (pointer != nullptr)
-		{
-			delete [ ] pointer;
-		}
-	}
-
 };
 
 int main()
 {
-	 String string;
-	 
-	 string = "Apple";
-	 
-	 for (int i = 0; i < string.Size(); i++)
-	 {
-	 	cout << string[i];
-	 }
-	 
-	 string = "Banana";
-	 
-	 string.Append("Milk");
-	 
-	 cout << endl;
-	 
-	 for (int i = 0; i < string.Size(); i++)
-	 {
-	 	cout << string[i];
-	 }
-	 return 0;
+	HashTable<const char *, int> hashTable;
 
+	cout << hashTable.HashFunction("AWQfrwwfwf") << endl;
+
+	hashTable.Insert("Sword", 10000);
+	hashTable.Insert("Armor", 25000);
+	hashTable.Insert("Posion", 5000);
+
+	 return 0;
 }
