@@ -1,49 +1,88 @@
 ﻿#include <iostream>
 
+#define SIZE 8
+
 using namespace std;
 
-struct Node
+template <typename T>
+class Heap
 {
-	int data;
-	Node * left;
-	Node * right;
-};
+private:
+	int index;
 
-Node * CreateNode(int data, Node * left, Node * right)
-{
-	Node * newNode = new Node();
-
-	newNode->data = data;
-
-	newNode->left = left;
-
-	newNode->right = right;
-
-	return newNode;
-
-}
-
-void Postorder(Node * root)
-{
-	if (root != nullptr)
+	T container[SIZE];
+public:
+	Heap()
 	{
-		Postorder(root->left);
-		Postorder(root->right);
-		cout << root->data << " ";
+		index = 0;
+
+		for (int i = 0; i < SIZE; i++)
+		{
+			container[i] = NULL;
+		}
 	}
-}
+
+	void Insert(T data)
+	{
+		if (index + 1 >= SIZE)
+		{
+			cout << "Heap Overflow" << endl;
+		}						    
+		else
+		{
+			container[++index] = data;
+
+			int child = index;
+			int parent = child / 2;
+
+			while (child > 1)
+			{
+				if (container[parent] < container[child])
+				{
+					std::swap(container[parent], container[child]);
+				}
+
+				child = parent;
+				parent = child / 2;
+			}
+		}
+	}
+
+	const T & Remove()
+	{
+		if (index <= 0)
+		{
+			cout << "Heap is Empty" << endl;
+
+			exit(0);
+		}
+		
+		T result = container[1];
+
+		container[1] = container[index];
+
+		container[index--] = NULL;
+	}
+
+	void Show()
+	{
+		for (int i = 1; i <= index; i++)
+		{
+			cout << container[i] << " ";
+		}
+	}
+};
 
 int main()
 {
-	Node* node7 = CreateNode(7, nullptr, nullptr);
-	Node* node6 = CreateNode(6, nullptr, nullptr);
-	Node* node5 = CreateNode(5, nullptr, nullptr);
-	Node* node4 = CreateNode(4, nullptr, nullptr);
-	Node* node3 = CreateNode(3, node6, node7);
-	Node* node2 = CreateNode(2, node4, node5);
-	Node* node1 = CreateNode(1, node2, node3);
+	Heap<int> heap;
 
-	Postorder(node1);
+	heap.Insert(12);
+	heap.Insert(10);
+	heap.Insert(22);
+	heap.Insert(30);
+
+	heap.Show();
 
 	return 0;
 }
