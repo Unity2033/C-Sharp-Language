@@ -1,88 +1,165 @@
 ﻿#include <iostream>
 
-#define SIZE 8
-
 using namespace std;
 
 template <typename T>
-class Heap
+class BinarySearchTree
 {
 private:
-	int index;
-
-	T container[SIZE];
-public:
-	Heap()
+	struct Node
 	{
-		index = 0;
+		T data;
 
-		for (int i = 0; i < SIZE; i++)
+		Node* left;
+		Node* right;
+	};
+
+	Node * root;
+public:
+	BinarySearchTree()
+	{
+		root = nullptr;
+	}
+
+	bool Find(T data)
+	{
+		Node * currentNode = root;
+
+		if (currentNode == nullptr)
 		{
-			container[i] = NULL;
+			return false;
+		}
+		else
+		{
+			while (currentNode != nullptr)
+			{
+				if (currentNode->data == data)
+				{
+					return true;
+				}
+				else
+				{
+					if (currentNode->data > data)
+					{
+						currentNode = currentNode->left;
+					}
+					else
+					{
+						currentNode = currentNode->right;
+					}
+				}
+			}
+
+			return false;
 		}
 	}
 
 	void Insert(T data)
 	{
-		if (index + 1 >= SIZE)
+		if (root == nullptr)
 		{
-			cout << "Heap Overflow" << endl;
-		}						    
+			root = CreateNode(data);
+		}
 		else
 		{
-			container[++index] = data;
+			Node * currentNode = root;
 
-			int child = index;
-			int parent = child / 2;
-
-			while (child > 1)
+			while (currentNode != nullptr)
 			{
-				if (container[parent] < container[child])
+				if (currentNode->data == data)
 				{
-					std::swap(container[parent], container[child]);
+					return;
 				}
+				else if (currentNode->data > data)
+				{
+					if (currentNode->left == nullptr)
+					{
+						currentNode->left = CreateNode(data);
+						break;
+					}
+					else
+					{
+						currentNode = currentNode->left;
+					}
+				}
+				else
+				{
+					if (currentNode->right == nullptr)
+					{
+						currentNode->right = CreateNode(data);
 
-				child = parent;
-				parent = child / 2;
+						break;
+					}
+					else
+					{
+						currentNode = currentNode->right;
+					}
+				}
 			}
+
+		}
+
+	}
+
+	void Inorder(Node * root)
+	{
+		if (root != nullptr)
+		{
+			Inorder(root->left);
+			cout << root->data << " ";
+			Inorder(root->right);
 		}
 	}
 
-	const T & Remove()
+	void Destroy(Node * root)
 	{
-		if (index <= 0)
+		if (root != nullptr)
 		{
-			cout << "Heap is Empty" << endl;
+			Destroy(root->left);
 
-			exit(0);
+			Destroy(root->right);
+
+			delete root;
 		}
-		
-		T result = container[1];
-
-		container[1] = container[index];
-
-		container[index--] = NULL;
 	}
 
-	void Show()
+	Node * Root()
 	{
-		for (int i = 1; i <= index; i++)
-		{
-			cout << container[i] << " ";
-		}
+		return root;
+	}
+
+	Node * CreateNode(T data)
+	{
+		Node * newNode = new Node;
+
+		newNode->data = data;
+
+		newNode->left = nullptr;
+
+		newNode->right = nullptr;
+
+		return newNode;
+	}
+
+	~BinarySearchTree()
+	{
+		Destroy(root);
 	}
 };
 
+
 int main()
 {
-	Heap<int> heap;
+	BinarySearchTree<int> binarySearchTree;
 
-	heap.Insert(12);
-	heap.Insert(10);
-	heap.Insert(22);
-	heap.Insert(30);
+	binarySearchTree.Insert(10);
+	binarySearchTree.Insert(15);
+	binarySearchTree.Insert(6);
+	binarySearchTree.Insert(7);
 
-	heap.Show();
+	cout << binarySearchTree.Find(15) << endl;
+
+	binarySearchTree.Inorder(binarySearchTree.Root());
 
 	return 0;
 }
