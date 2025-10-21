@@ -3,69 +3,19 @@
 using namespace std;
 
 template <typename T>
-class List
+class Vector
 {
 private:
-    struct Node
-    {
-        T data;
-        Node * next;
-    };
+    int count;
+    int capacity;
 
-    int size;
-    Node * head;
-
+    T * pointer;
 public:
-    List()
+    Vector()
     {
-        size = 0;
-        head = nullptr;
-    }
-
-    void push_back(T data)
-    {
-        Node * newNode = new Node;
-
-        newNode->data = data;
-
-        if (head == nullptr)
-        {
-            head = newNode;
-
-            newNode->next = head;
-        }
-        else
-        {
-            newNode->next = head->next;
-
-            head->next = newNode;
-
-            head = newNode;       
-        }
-
-        size++;
-    }
-
-    void push_front(T data)
-    {
-        Node * newNode = new Node;
-
-        newNode->data = data;
-
-        if (head == nullptr)
-        {
-            head = newNode;
-
-            newNode->next = head;
-        }
-        else
-        {
-            newNode->next = head->next;
-
-            head->next = newNode;
-        }
-
-        size++;
+        count = 0;
+        capacity = 0;
+        pointer = nullptr;
     }
 
 
@@ -73,13 +23,7 @@ public:
 
 int main()
 {
-    List<int> list;
-
-    list.push_back(10);
-    list.push_back(20);
-
-    list.push_front(5);
-    list.push_front(1);
+    Vector<int> vector;
 
     return 0;
 }
