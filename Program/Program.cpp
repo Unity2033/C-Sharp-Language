@@ -1,28 +1,36 @@
 ﻿#include <iostream>
 
+#define SIZE 5
+
 using namespace std;
 
 template <typename T>
-class Stack
+class Queue
 {
 private:
-    int highset;
-    int capacity;
+    int rear;
+    int front;
 
-    T * container;
+    T container[SIZE];
+
 public:
-    Stack()
+    Queue()
     {
-        highset = -1;
-        capacity = 0;
+        rear = 0;
+        front = 0;
 
-        container = nullptr;
+        for (int i = 0; i < SIZE; i++)
+        {
+            container[i] = NULL;
+        }             
     }
 
 };
 
 int main()
 {
+    Queue<int> queue;
+
 
     return 0;
 }
