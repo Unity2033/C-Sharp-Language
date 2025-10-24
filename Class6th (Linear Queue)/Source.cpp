@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 
-#define SIZE 4
+#define SIZE 5
 
 using namespace std;
 
@@ -13,11 +13,11 @@ private:
 
     T container[SIZE];
 
-public :
+public:
     Queue()
     {
-        rear = SIZE - 1;
-        front = SIZE - 1;
+        rear = 0;
+        front = 0;
 
         for (int i = 0; i < SIZE; i++)
         {
@@ -27,15 +27,13 @@ public :
 
     void push(T data)
     {
-        if (front == (rear + 1) % SIZE)
+        if (rear >= SIZE)
         {
-            cout << "circle queue overflow" << endl;
+            cout << "linear queue overflow" << endl;
         }
         else
         {
-            rear = (rear + 1) % SIZE;
-
-            container[rear] = data;
+            container[rear++] = data;
         }
     }
 
@@ -43,18 +41,15 @@ public :
     {
         if (empty())
         {
-            cout << "circle queue is empty" << endl;
+            cout << "linear queue is empty" << endl;
         }
-        else 
+        else
         {
-            front = (front + 1) % SIZE;
-
-            container[front] = NULL;
+            container[front++] = NULL;
         }
-
     }
 
-    const bool& empty() 
+    const bool & empty()
     {
         return front == rear;
     }
@@ -67,8 +62,13 @@ public :
         }
         else
         {
-            return container[(front + 1) % SIZE];
+            return container[front];
         }
+    }
+
+    const int & size()
+    {
+        return rear - front;
     }
 
 };
@@ -80,6 +80,8 @@ int main()
     queue.push(10);
     queue.push(20);
     queue.push(30);
+    queue.push(40);
+    queue.push(50);
 
     while (queue.empty() == false)
     {
@@ -88,8 +90,8 @@ int main()
         queue.pop();
     }
 
-    queue.push(40);
-    queue.push(50);
+    cout << "Queue Size : " << queue.size() << endl;
+
     queue.push(60);
 
     return 0;
