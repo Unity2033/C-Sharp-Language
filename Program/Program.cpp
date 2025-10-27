@@ -1,73 +1,70 @@
 ﻿#include <iostream>
 
-#define SIZE 4
-
 using namespace std;
 
-template <typename T>
-class Queue
+template<typename T>
+class PriorityQueue
 {
 private:
-    int rear;
-    int front;
+    int index;
+    int capacity;
 
-    T container[SIZE];
-
-public :
-    Queue()
+    T* container;
+public:
+    PriorityQueue()
     {
-        rear = SIZE - 1;
-        front = SIZE - 1;
+        index = 0;
+        capacity = 0;
+        container = nullptr;
+    }
 
-        for (int i = 0; i < SIZE; i++)
+    void resize(int newSize)
+    {
+        capacity = newSize;
+
+        T* temporary = new T[capacity];
+
+        for (int i = 0; i < capacity; i++)
         {
-            container[i] = NULL;
+            temporary[i] = NULL;
         }
+
+        for (int i = 0; i < index; i++)
+        {
+            temporary[i] = container[i];
+        }
+
+        delete[] container;
+
+        container = temporary;
     }
 
     void push(T data)
     {
-        if (front == (rear + 1) % SIZE)
+        if (capacity <= 0)
         {
-            cout << "circle queue overflow" << endl;
+            resize(1);
         }
-        else
+        else if(index >= capacity)
         {
-            rear = (rear + 1) % SIZE;
-
-            container[rear] = data;
-        }
-    }
-
-    void pop()
-    {
-        if (empty())
-        {
-            cout << "circle queue is empty" << endl;
-        }
-        else 
-        {
-            front = (front + 1) % SIZE;
-
-            container[front] = NULL;
+            resize(capacity * 2);
         }
 
-    }
+        container[index++] = data;
 
-    const bool& empty() 
-    {
-        return front == rear;
-    }
+        int child = index - 1;
+        int parent = (child - 1) / 2;
 
-    const T & peek()
-    {
-        if (empty())
+        while (child > 0)
         {
-            exit(1);
-        }
-        else
-        {
-            return container[(front + 1) % SIZE];
+            if (container[parent] < container[child])
+            {
+                std::swap(container[parent], container[child]);
+            }
+
+            child = parent;
+
+            parent = (child - 1) / 2;
         }
     }
 
@@ -75,22 +72,12 @@ public :
 
 int main()
 {
-    Queue<int> queue;
+    PriorityQueue<int> priorityQueue;
 
-    queue.push(10);
-    queue.push(20);
-    queue.push(30);
-
-    while (queue.empty() == false)
-    {
-        cout << queue.peek() << endl;
-
-        queue.pop();
-    }
-
-    queue.push(40);
-    queue.push(50);
-    queue.push(60);
+    priorityQueue.push(10);
+    priorityQueue.push(20);
+    priorityQueue.push(5);
+    priorityQueue.push(33);
 
     return 0;
 }

@@ -7,13 +7,16 @@
       "RelativeMoniker": "D:0:0:{3613945C-443E-432C-80EB-ED4C0640A942}|Program.vcxproj|solutionrelative:Program.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F19A1BFF-5496-40E4-A28D-EB4576E9CCB5}|..\\Class6th (Linear Queue)\\Class6th (Linear Queue).vcxproj|C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class6th (Linear Queue)\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D0E099E1-A484-47EF-9D77-068616297185}|..\\Class5th (Stack)\\Class5th (Stack).vcxproj|C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class5th (Stack)\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{045569FC-5BA4-429C-ACE0-4878D1C53144}|..\\Class4th (Vector)\\Class4th (Vector).vcxproj|C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class4th (Vector)\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80FD31D4-177E-488F-BDC2-59FBCB12D305}|..\\Class7th (Circle Queue)\\Class7th (Circle Queue).vcxproj|C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class7th (Circle Queue)\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F19A1BFF-5496-40E4-A28D-EB4576E9CCB5}|..\\Class6th (Linear Queue)\\Class6th (Linear Queue).vcxproj|C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class6th (Linear Queue)\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{88766945-7ED3-44FC-8652-2BEB5A207C8E}|..\\Class3th (Circle Linked List)\\Class3th (Circle Linked List).vcxproj|C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class3th (Circle Linked List)\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -32,7 +35,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -56,7 +59,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "Source.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class7th (Circle Queue)\\Source.cpp",
+              "RelativeDocumentMoniker": "..\\Class7th (Circle Queue)\\Source.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class7th (Circle Queue)\\Source.cpp",
+              "RelativeToolTip": "..\\Class7th (Circle Queue)\\Source.cpp",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAwwGAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-10-27T09:04:49.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class6th (Linear Queue)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class6th (Linear Queue)\\Source.cpp",
@@ -64,12 +80,11 @@
               "RelativeToolTip": "..\\Class6th (Linear Queue)\\Source.cpp",
               "ViewState": "AQIAAAYAAAAAAAAAAADwv0IAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-10-24T09:20:12.451Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-24T09:20:12.451Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class5th (Stack)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class5th (Stack)\\Source.cpp",
@@ -77,23 +92,25 @@
               "RelativeToolTip": "..\\Class5th (Stack)\\Source.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-10-23T10:01:12.223Z"
+              "WhenOpened": "2025-10-23T10:01:12.223Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class4th (Vector)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class4th (Vector)\\Source.cpp",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class4th (Vector)\\Source.cpp",
               "RelativeToolTip": "..\\Class4th (Vector)\\Source.cpp",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAAFoAAAACAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAABYAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-10-22T10:12:41.994Z"
+              "WhenOpened": "2025-10-22T10:12:41.994Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class3th (Circle Linked List)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class3th (Circle Linked List)\\Source.cpp",
@@ -105,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class2th (Double Linked List)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class2th (Double Linked List)\\Source.cpp",
@@ -117,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class1th (Single Linked List)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class1th (Single Linked List)\\Source.cpp",
@@ -135,7 +152,7 @@
               "RelativeDocumentMoniker": "Program.cpp",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Program\\Program.cpp",
               "RelativeToolTip": "Program.cpp",
-              "ViewState": "AQIAABYAAAAAAAAAAAA2wB4AAAAJAAAA",
+              "ViewState": "AQIAAEgAAAAAAAAAAADgv1IAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-15T09:07:12.48Z",
               "EditorCaption": ""
