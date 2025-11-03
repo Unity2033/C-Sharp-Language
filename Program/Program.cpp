@@ -23,11 +23,51 @@ public:
         matrix = nullptr;
     }
 
+    void push(T data)
+    {
+        if (capacity <= 0)
+        {
+            resize(1);
+        }
+        else if (size >= capacity)
+        {
+            resize(capacity * 2);
+        }
+
+        vertex[size++] = data;
+    }
+
+    void resize(int newSize)
+    {
+        capacity = newSize;
+
+        T * container = new T[capacity];
+
+        for (int i = 0; i < capacity; i++)
+        {
+            container[i] = NULL;
+        }
+
+        for (int i = 0; i < size; i++)
+        {
+            container[i] = vertex[i];
+        }
+
+        delete [ ] vertex;
+
+        vertex = container;
+    }
+
 };
 
 int main()
 {
-    Graph<int> graph;
+    Graph<char> graph;
+
+    graph.push('A');
+    graph.push('B');
+    graph.push('C');
+
 
     return 0;
 }
