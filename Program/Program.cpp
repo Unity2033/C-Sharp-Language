@@ -2,16 +2,29 @@
 
 using namespace std;
 
-template <typename T>
-class Graph 
+template<typename T>
+class Graph
 {
 private:
-    int size;     // 정점의 개수
-    int count;    // 인접 행렬의 크기
+    struct Node
+    {
+        T data;
+        Node * next;
+
+        Node(T data, Node* link = nullptr)
+        {
+            this->data = data;
+            next = link;
+        }
+    };
+
+    int size; // 정점의 개수
+    int count; // 인접 리스트의 크기
     int capacity; // 최대 용량
 
-    T * vertex;   // 정점의 집합
-    int ** matrix; // 인접 행렬
+    T * vertex; // 정점의 집합
+    Node ** list; // 인접 리스트
+
 public:
     Graph()
     {
@@ -19,8 +32,8 @@ public:
         count = 0;
         capacity = 0;
 
+        list = nullptr;
         vertex = nullptr;
-        matrix = nullptr;
     }
 
     void push(T data)
@@ -37,40 +50,11 @@ public:
         vertex[size++] = data;
     }
 
-    void resize()
-    {
-        int ** newMatrix = new int * [size];
-
-        for (int i = 0; i < size; i++)
-        {
-            newMatrix[i] = new int[size] {0};
-        }
-
-        for (int i = 0; i < count; i++)
-        {
-            for (int j = 0; j < count; j++)
-            {
-                newMatrix[i][j] = matrix[i][j];
-            }
-        }
-
-        for (int i = 0; i < count; i++)
-        {
-            delete [ ] matrix[i];
-        }
-
-        delete [ ] matrix;
-
-        matrix = newMatrix;
-
-        count = size;
-    }
-
     void resize(int newSize)
     {
         capacity = newSize;
 
-        T * container = new T[capacity];
+        T* container = new T[capacity];
 
         for (int i = 0; i < capacity; i++)
         {
@@ -82,7 +66,7 @@ public:
             container[i] = vertex[i];
         }
 
-        delete [ ] vertex;
+        delete[] vertex;
 
         vertex = container;
     }
@@ -91,52 +75,31 @@ public:
     {
         if (size <= 0)
         {
-            cout << "adjacency matrix is empty" << endl;
+            cout << "adjacency list is empty" << endl;
         }
         else if (i >= size || j >= size)
         {
             cout << "index out of range" << endl;
-        }                                        
+        }
         else
         {
-            if (matrix == nullptr)
+            if (list == nullptr)
             {
-                count = size;
-
-                matrix = new int * [size];
+                list = new Node * [size];
 
                 for (int i = 0; i < size; i++)
                 {
-                    matrix[i] = new int[size];
-
-                    for (int j = 0; j < size; j++)
-                    {
-                        matrix[i][j] = 0;
-                    }
+                    list[i] = nullptr;
                 }
+
+                count = size;
             }
-            else if (count < size)
-            {
-                resize();
-            }
+
+            list[i] = new Node(vertex[j], list[i]);
+            list[j] = new Node(vertex[i], list[j]);
         }
 
-        matrix[i][j] = 1;
-        matrix[j][i] = 1;
     }
-
-    ~Graph()
-    {
-        for (int i = 0; i < count; i++)
-        {
-            delete [ ] matrix[i];
-        }
-
-        delete [ ] matrix;
-
-        delete [ ] vertex;
-    }
-
 };
 
 int main()
@@ -146,13 +109,14 @@ int main()
     graph.push('A');
     graph.push('B');
     graph.push('C');
-
-    graph.edge(0, 1);
-    graph.edge(1, 2);
-   
     graph.push('D');
 
-    graph.edge(0, 3);
+    graph.edge(1, 2);
+    graph.edge(1, 3);
+
+    graph.push('E');
+
+    graph.edge(2, 4);
 
     return 0;
 }
