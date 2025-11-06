@@ -7,6 +7,9 @@
       "RelativeMoniker": "D:0:0:{3613945C-443E-432C-80EB-ED4C0640A942}|Program.vcxproj|solutionrelative:Program.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{0B5BE412-1AC5-4C56-9869-D7E82E280472}|..\\Class11th (Adjacency List)\\Class11th (Adjacency List).vcxproj|C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class11th (Adjacency List)\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{38306D68-989F-415B-9AEE-744291F070A2}|..\\Class10th (Adjacency Matrix)\\Class10th (Adjacency Matrix).vcxproj|C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class10th (Adjacency Matrix)\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
@@ -44,7 +47,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": 16,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,18 +73,30 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Source.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class11th (Adjacency List)\\Source.cpp",
+              "RelativeDocumentMoniker": "..\\Class11th (Adjacency List)\\Source.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class11th (Adjacency List)\\Source.cpp",
+              "RelativeToolTip": "..\\Class11th (Adjacency List)\\Source.cpp",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAALEAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-11-06T10:41:59.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class10th (Adjacency Matrix)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class10th (Adjacency Matrix)\\Source.cpp",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class10th (Adjacency Matrix)\\Source.cpp",
               "RelativeToolTip": "..\\Class10th (Adjacency Matrix)\\Source.cpp",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAEMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-11-05T09:12:01.019Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T09:12:01.019Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class9th (Hash Table)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class9th (Hash Table)\\Source.cpp",
@@ -93,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class8th (Priority Queue)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class8th (Priority Queue)\\Source.cpp",
@@ -105,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class7th (Circle Queue)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class7th (Circle Queue)\\Source.cpp",
@@ -117,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class6th (Linear Queue)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class6th (Linear Queue)\\Source.cpp",
@@ -129,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class5th (Stack)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class5th (Stack)\\Source.cpp",
@@ -141,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class4th (Vector)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class4th (Vector)\\Source.cpp",
@@ -153,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class3th (Circle Linked List)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class3th (Circle Linked List)\\Source.cpp",
@@ -165,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class2th (Double Linked List)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class2th (Double Linked List)\\Source.cpp",
@@ -177,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Class1th (Single Linked List)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class1th (Single Linked List)\\Source.cpp",
@@ -195,7 +210,7 @@
               "RelativeDocumentMoniker": "Program.cpp",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\Game-Lecture\\Program\\Program.cpp",
               "RelativeToolTip": "Program.cpp",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAAEgAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-15T09:07:12.48Z",
               "EditorCaption": ""
