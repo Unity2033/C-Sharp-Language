@@ -1,10 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\Program\\",
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Program\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9D036568-7E46-4521-BADB-624C8A3A4B8D}|Program.csproj|c:\\users\\administrator\\desktop\\program\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9D036568-7E46-4521-BADB-624C8A3A4B8D}|Program.csproj|c:\\users\\administrator\\desktop\\c-sharp-language\\program\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9D036568-7E46-4521-BADB-624C8A3A4B8D}|Program.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D036568-7E46-4521-BADB-624C8A3A4B8D}|Program.csproj|c:\\users\\administrator\\desktop\\c-sharp-language\\program\\program.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{9D036568-7E46-4521-BADB-624C8A3A4B8D}|Program.csproj|solutionrelative:program.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D5FAC18-F8EC-4B00-A97E-7AB715F12C29}|..\\Class1th (Garbage Collection)\\Class1th (Garbage Collection).csproj|c:\\users\\administrator\\desktop\\c-sharp-language\\class1th (garbage collection)\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +21,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,13 +45,38 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Program\\Program.csproj",
+              "RelativeDocumentMoniker": "Program.csproj",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Program\\Program.csproj",
+              "RelativeToolTip": "Program.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-14T12:01:01.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Class1th (Garbage Collection)\\Program.cs",
+              "RelativeDocumentMoniker": "..\\Class1th (Garbage Collection)\\Program.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Class1th (Garbage Collection)\\Program.cs",
+              "RelativeToolTip": "..\\Class1th (Garbage Collection)\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T11:22:57.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Program\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Program\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Desktop\\Program\\Program.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Program\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAnAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAUwBYAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-13T11:14:36.303Z",
               "EditorCaption": ""

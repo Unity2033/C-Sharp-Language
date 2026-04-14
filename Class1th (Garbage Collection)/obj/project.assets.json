@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Program\\Program.csproj",
-      "projectName": "Program",
-      "projectPath": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Program\\Program.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Class1th (Garbage Collection)\\Class1th (Garbage Collection).csproj",
+      "projectName": "Class1th (Garbage Collection)",
+      "projectPath": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Class1th (Garbage Collection)\\Class1th (Garbage Collection).csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Program\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\Desktop\\C-Sharp-Language\\Class1th (Garbage Collection)\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
