@@ -1,52 +1,52 @@
-﻿public class Circle
+﻿public class Puzzle
 {
-    public int x;
-    public int y;
-    public float radius;
+    public string word;
 
-    public Circle()
+    public Puzzle()
     {
-        Console.WriteLine("Created Circle");
+        word = "apple"; 
+    }
+
+    public void Render(in int index)
+    {
+        for (int i = 0; i < word.Length; i++)
+        {
+            if (i == index)
+            {
+                Console.Write("_ ");
+            }
+            else
+            {
+                Console.Write(word[i] + " ");
+            }
+        }
+    }
+
+    public void Enter(ref int health)
+    {
+        health--;
     }
 }
 
+
 internal class Program
 {
-    static void Collide(Circle origin, Circle other)
-    {
-        float deltaX = origin.x - other.x;
-        float deltaY = origin.y - other.y;
-
-        float radius = (origin.radius + other.radius) * (origin.radius + other.radius);
-
-        if (deltaX * deltaX + deltaY * deltaX <= radius)
-        {
-
-        }
-        else
-        {
-
-        }
-    }
-
     static void Main(string[] args)
     {
         #region 매개 변수 한정자
         // 인수가 함수에 전달되는 방식과 사용 규칙을 제어하는 한정자입니다.
 
-        Circle circle = new Circle();
+        int life = 5;
 
-        circle.x = 5;
-        circle.y = 5;
-        circle.radius = 1.0f;
+        Puzzle puzzle = new Puzzle();
 
-        Circle quadrant = new Circle();
+        puzzle.Enter(ref life);
 
-        quadrant.x = 1;
-        quadrant.y = 2;
-        circle.radius = 1.0f;
+        Random random = new Random();
 
-        Collide(circle, quadrant);
+        int index = random.Next(0, puzzle.word.Length);
+
+        puzzle.Render(in index);
 
         #endregion
 
