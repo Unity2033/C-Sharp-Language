@@ -1,56 +1,18 @@
-﻿public class Puzzle
+﻿namespace Program
 {
-    public string word;
-
-    public Puzzle()
+    internal class Program
     {
-        word = "apple"; 
-    }
-
-    public void Render(in int index)
-    {
-        for (int i = 0; i < word.Length; i++)
+        static void Main(string[] args)
         {
-            if (i == index)
-            {
-                Console.Write("_ ");
-            }
-            else
-            {
-                Console.Write(word[i] + " ");
-            }
+            #region 추상 클래스
+            // 공통적인 기능을 제공하며, 구체적인 동작은 하위 클래스에서
+            // 정의할 수 있도록 만들어 놓은 클래스입니다.
+
+            Unit unit;
+
+            #endregion
+
         }
-    }
-
-    public void Enter(ref int health)
-    {
-        health--;
-    }
-}
-
-
-internal class Program
-{
-    static void Main(string[] args)
-    {
-        #region 매개 변수 한정자
-        // 인수가 함수에 전달되는 방식과 사용 규칙을 제어하는 한정자입니다.
-
-        int life = 5;
-
-        Puzzle puzzle = new Puzzle();
-
-        puzzle.Enter(ref life);
-
-        Random random = new Random();
-
-        int index = random.Next(0, puzzle.word.Length);
-
-        puzzle.Render(in index);
-
-        #endregion
-
-
     }
 }
 
