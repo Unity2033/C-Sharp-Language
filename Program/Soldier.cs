@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Program
 {
-    internal abstract class Unit
+    internal abstract class Soldier
     {
         protected int health;
         protected int defense;
