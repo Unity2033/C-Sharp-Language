@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Program
 {
-    internal abstract class Soldier
+    internal class Frame : ISelectable
     {
-        protected int health;
-        protected int defense;
-
-        public abstract void Attack(); 
+        public void Select()
+        {
+            Console.WriteLine("examine the frame...");
+        }
     }
 }

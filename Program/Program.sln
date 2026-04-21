@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Program", "Program.csproj",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Class1th (Garbage Collection)", "..\Class1th (Garbage Collection)\Class1th (Garbage Collection).csproj", "{0D5FAC18-F8EC-4B00-A97E-7AB715F12C29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class2th (Parameter Modifier)", "..\Class2th (Parameter Modifier)\Class2th (Parameter Modifier).csproj", "{A8EEF23E-D59C-4644-820A-87CC90A4C41F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Class2th (Parameter Modifier)", "..\Class2th (Parameter Modifier)\Class2th (Parameter Modifier).csproj", "{A8EEF23E-D59C-4644-820A-87CC90A4C41F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class3th (Abstract Class)", "..\Class3th (Abstract Class)\Class3th (Abstract Class).csproj", "{0B887AE8-0312-43AD-8889-005E97393CFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A8EEF23E-D59C-4644-820A-87CC90A4C41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8EEF23E-D59C-4644-820A-87CC90A4C41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8EEF23E-D59C-4644-820A-87CC90A4C41F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B887AE8-0312-43AD-8889-005E97393CFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B887AE8-0312-43AD-8889-005E97393CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B887AE8-0312-43AD-8889-005E97393CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B887AE8-0312-43AD-8889-005E97393CFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

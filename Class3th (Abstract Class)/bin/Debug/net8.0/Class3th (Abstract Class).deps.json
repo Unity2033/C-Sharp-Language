@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Class3th (Abstract Class)/1.0.0": {
+        "runtime": {
+          "Class3th (Abstract Class).dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Class3th (Abstract Class)/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

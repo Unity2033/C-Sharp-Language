@@ -1,0 +1,15 @@
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\bin\Debug\net8.0\Class3th (Abstract Class).exe
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\bin\Debug\net8.0\Class3th (Abstract Class).deps.json
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\bin\Debug\net8.0\Class3th (Abstract Class).runtimeconfig.json
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\bin\Debug\net8.0\Class3th (Abstract Class).dll
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\bin\Debug\net8.0\Class3th (Abstract Class).pdb
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\obj\Debug\net8.0\Class3th (Abstract Class).GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\obj\Debug\net8.0\Class3th (Abstract Class).AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\obj\Debug\net8.0\Class3th (Abstract Class).AssemblyInfo.cs
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\obj\Debug\net8.0\Class3th (Abstract Class).csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\obj\Debug\net8.0\Class3th (Abstract Class).sourcelink.json
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\obj\Debug\net8.0\Class3th (Abstract Class).dll
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\obj\Debug\net8.0\refint\Class3th (Abstract Class).dll
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\obj\Debug\net8.0\Class3th (Abstract Class).pdb
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\obj\Debug\net8.0\Class3th (Abstract Class).genruntimeconfig.cache
+C:\Users\Administrator\Desktop\C-Sharp-Language\Class3th (Abstract Class)\obj\Debug\net8.0\ref\Class3th (Abstract Class).dll
