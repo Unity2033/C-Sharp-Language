@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Program
+internal class Frame : ISelectable
 {
-    internal interface ISelectable
+    public void Select()
     {
-        public void Select();
+        Console.WriteLine("examine the frame...");
     }
 }
