@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Class2th (Parameter Modifie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Class3th (Abstract Class)", "..\Class3th (Abstract Class)\Class3th (Abstract Class).csproj", "{0B887AE8-0312-43AD-8889-005E97393CFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class4th (Interface)", "..\Class4th (Interface)\Class4th (Interface).csproj", "{4C3C089B-E3AB-460A-A90A-F914767415B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Class4th (Interface)", "..\Class4th (Interface)\Class4th (Interface).csproj", "{4C3C089B-E3AB-460A-A90A-F914767415B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class5th (Generalization)", "..\Class5th (Generalization)\Class5th (Generalization).csproj", "{5C1B1942-1DF2-424C-B6D7-A340BBB27A41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{4C3C089B-E3AB-460A-A90A-F914767415B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C3C089B-E3AB-460A-A90A-F914767415B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C3C089B-E3AB-460A-A90A-F914767415B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C1B1942-1DF2-424C-B6D7-A340BBB27A41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C1B1942-1DF2-424C-B6D7-A340BBB27A41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C1B1942-1DF2-424C-B6D7-A340BBB27A41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C1B1942-1DF2-424C-B6D7-A340BBB27A41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

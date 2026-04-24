@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Class1th (Garbage Collection)")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+381a1b43ceb7d0b767f3d9a6671cdc9625fe800e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5c1c08e5f631e12b975d1073e99b5155e8ed855")]
 [assembly: System.Reflection.AssemblyProductAttribute("Class1th (Garbage Collection)")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Class1th (Garbage Collection)")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
